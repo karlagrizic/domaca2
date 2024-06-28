@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" sadrzaj="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing:border-box;
+        }
+        body {
+            background-color: blanchedalmond;
+        }
+        ul {
+            display: flex;
+            justify-content:space-evenly;
+            background-color:darkblue;
+            width: 100%;
+            margin: 0;
+            padding: 10px 0;
+            box-sizing: border-box;
+        }
+        ul li {
+            position: relative;
+            list-style-type: none;
+            width: 200px;
+            font-size: 25px;
+            text-align: center;
+        }
+        ul li:hover{
+            background-color: blue;
+        }
+        a{
+            text-decoration: none;
+            color:inherit;
+        }
+        ul a {
+            padding: 10px;
+            display: block;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+        }
+        ul a:hover {
+            background-color: blue;
+        }
+        .pod {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: darkblue;
+            width: 100%;
+            list-style: none;
+        }
+        .pod a {
+            padding: 10px;
+            text-align: center;
+        }
+        ul li:hover .pod {
+            display: block;
+        }
+        .sadrzaj {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .naslovi {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  /* ovdje sam pronasla kako koristiti minmax, znam da to nismo radili https://developer.mozilla.org/en-US/docs/Web/CSS/minmax*/
+            grid-gap: 20px;
+        }
+        .grid-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid steelblue;
+        }
+        .grid-item img {
+            max-width: 100%;
+            height: 80%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        p{
+            padding: 1px;
+        }
+        h3 {
+            margin-top: 1px;
+            font-size: 20px;
+        }
+        .dole{
+            padding: 2%;
+        }
+        nav img{
+            display: none;
+            width: 50px;
+            height: 50px;
+        }
+        input{
+            display: none;
+        }
+        label{
+            display: none;
+            background-image: url(Hamburger_icon.svg.png);
+            background-size: 50px;
+            width: 50px;
+            height: 50px;
+            margin-left: 2%;
+        }
+
+        @media (max-width: 600px){
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            .dole{
+                padding: 7%;
+            }
+            nav{
+                width: 100%;
+                height: 20%;
+                padding: 1%;
+            }
+            nav ul{
+                list-style: none;
+                display: block;
+                position: relative;
+            }
+            nav li{
+                display: block;
+                margin: 10px;
+                padding: 10px;
+                width: 120px;
+                text-align: center;
+                height: 50%;
+                font-size: 25px;
+            }
+            nav li:hover{
+                background-color: blue;
+                color: white;
+            }
+            header{
+                justify-content: left;
+            }
+            nav{
+                display: none;
+            }
+            label{
+                display: block;
+            }
+            input:checked~label{
+                background-image: url(Hamburger_icon.svg.png);
+                background-color: blue;
+            }
+            input:checked~nav{
+                display: block;
+                padding: 0px;
+            }
+            nav ul{
+                width: 30%;
+                position: absolute;
+                top: 0;
+                left: 60px;
+            }
+            nav:hover .pod{
+                position: absolute;
+                left: 165px;
+                top: -10px;
+                display: none;
+            }
+            nav ul li{
+                width: 100%;
+                margin: 0px;
+                border-bottom: 1px solid black;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <input type="checkbox" id="menu">
+    
+    <nav>
+        <div class="odabir">
+        <ul id="gore">
+
+            <li>
+                <a href="#breakfast">Doručak</a>
+                <ul class="pod">
+                    <li><a href="#prva">Grčki</a></li>
+                    <li><a href="#druga">Francuski</a></li>
+                    <li><a href="#treca">Ruski</a></li>
+                </ul>
+            
+            </li>
+            <li>
+                <a href="#lunch">Ručak</a>
+                <ul class="pod">
+                    <li><a href="#lunch1">Meksički</a></li>
+                    <li><a href="#lunch2">Američki</a></li>
+                    <li><a href="#lunch3">Japanski</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#dinner">Večera</a>
+                <ul class="pod">
+                    <li><a href="#dinner1">Njemačka</a></li>
+                    <li><a href="#dinner2">Engleska</a></li>
+                    <li><a href="#dinner3">Danska</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#drinks">Pića</a>
+                <ul class="pod">
+                    <li><a href="#casa1">nisam</a></li>
+                    <li><a href="#casa2">stavila</a></li>
+                    <li><a href="#casa3">pivu</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    </nav>
+    <label for="menu"></label>
+    </header>
+    <div id="breakfast" class="sadrzaj">
+        <h2 class="naslovi">Doručak</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <img src="greek.jpg" id="prva">
+                <h3>Grčki doručak</h3>
+                <p>Kajgana s rajčicama i fetom.</p>
+            </div>
+            <div class="grid-item">
+                <img src="French-Breakfast.jpg" id="druga">
+                <h3>Francuski doručak</h3>
+                <p>Sastoji se od kave/čaja, naravno <span style="font-weight: bold;">kroasana</span> i voća.</p>
+            </div>
+            <div class="grid-item">
+                <img src="ruski.jpg" id="treca">
+                <h3>Ruski doručak</h3>
+                <p>Mali kolači, pune se sirom, a nalikuju na palačinke.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="lunch" class="sadrzaj">
+        <h2 class="naslovi">Ručak</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <img src="tacos.jpg" id="lunch1">
+                <h3>Meksički ručak</h3>
+                <p>Tacosi, svjetski najpopularniji meksički recept.</p>
+            </div>
+            <div class="grid-item">
+                <img src="cheese.jpeg" id="lunch2">
+                <h3>Američki ručak</h3>
+                <p>Cheeseburger, McD ih razvaljuje.</p>
+            </div>
+            <div class="grid-item">
+                <img src="Yakitori.jpg" id="lunch3">
+                <h3>Japanski ručak</h3>
+                <p>Piletina na ražnjiču od čelika/bambusa.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="dinner" class="sadrzaj">
+        <h2 class="naslovi">Božične večere diljem svijeta</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <img src="njemacka.jpeg" id="dinner1">
+                <h3>Njemačka večera</h3>
+                <p>Kobasice s krumpir salatom - sa ili bez majoneze.</p>
+            </div>
+            <div class="grid-item">
+                <img src="eng.jpeg" id="dinner2">
+                <h3>Engleska večera</h3>
+                <p>Purica punjena rižom ili krumpirom, povrćem na žaru i puding od šljiva koji se flambira rumom ili rakijom.</p>
+            </div>
+            <div class="grid-item">
+                <img src="danska-bozicn-jela.jpg" id="dinner3">
+                <h3>Danska večera</h3>
+                <p>Jela od pečene guske, patke ili svinjetine u kombinaciji sa zeljem i smeđim krumpirom..</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="drinks" class="sadrzaj">
+        <h2 class="naslovi">Pića</h2>
+        <div class="grid">
+            <div class="grid-item">
+                <img src="ceski.jpg" id="casa1">
+                <h3>Becherovcka, Češka</h3>
+                <p>Tradicionalno alkoholni češki liker i 100% prirodno piće proizvedeno od kombinacije mješovitog bilja, začina,alkohola, prirodnog šećera i vode iz Karlovy Varya.</p>
+            </div>
+            <div class="grid-item">
+                <img src="yeni.jpg" id="casa2" >
+                <h3>Yeni Raki, Turska</h3>
+                <p>Ima okus kao sirup protiv kašlja, a izrađuje se od sirovina grožđa i dodaje se sjeme anisa, neki kod kuće Yeni rade od datulja i smokvi.</p>
+            </div>
+            <div class="grid-item">
+                <img src="tequla.jpg" id="casa3">
+                <h3>Tequila, Meksiko</h3>
+                <p>Proizvodi se od vrlo poznate biljke agave. Najčešće se konzumira uz sol i limun za ublažavanje okusa, a pojedini ljudi umjesto limuna koriste karamelu i ostalo voće iz porodice agruma. Meni omilljena :)</p>
+            </div>
+        </div>
+    </div>
+    <p class="dole" style="text-align: right"><a href="#gore" style="text-decoration: none; color: inherit;">povratak na vrh</a></p>
+
+</body>
+</html>
